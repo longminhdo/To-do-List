@@ -37,7 +37,7 @@
     border-radius: 4px;
     display: flex;
     align-items: center;
-    padding: 0 18px;
+    padding: 0 20px;
 }
 
 .item span {
@@ -46,4 +46,8 @@
 
 .item:hover {
     cursor: pointer;
+}
+
+.item svg {
+    font-size: 1.3rem;
 }
