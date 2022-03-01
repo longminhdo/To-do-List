@@ -7,6 +7,7 @@
     --secondary-white-color: #f5f2ef;
     --main-grey-color: #a4a4a4;
     --secondary-grey-color: #eaeaea;
+    --main-black-color: #333333;
 }
 
 * {
@@ -21,6 +22,7 @@
 .App {
     background-color: var(--main-bg-color);
     position: relative;
+    color: var(--main-black-color);
 }
 
 .main {

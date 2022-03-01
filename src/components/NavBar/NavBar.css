@@ -14,9 +14,9 @@
 }
 
 .nav-bar__logo span {
-    font-size: 1.3rem;
+    font-size: 1.7rem;
     margin-left: 12px;
-    transform: translateY(7px);
+    transform: translateY(1px);
     position: absolute;
 }
 

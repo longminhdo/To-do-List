@@ -19,12 +19,31 @@
 }
 
 .side-bar-wrapper .user-name {
-    margin-left: 40px;
-}
-
-.side-bar-wrapper .function {
+    margin-left: 20px;
 }
 
 .active {
     background-color: var(--main-red-color);
+    color: var(--secondary-white-color);
+    font-weight: bold;
+}
+
+.function__list {
+    margin-top: 40px;
+}
+
+.item {
+    height: 36px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 18px;
+}
+
+.item span {
+    margin-left: 10px;
+}
+
+.item:hover {
+    cursor: pointer;
 }

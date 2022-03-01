@@ -8,49 +8,40 @@ import { Icon } from "@iconify/react";
 const dummyData = Object.values(data);
 
 export default function Home() {
-    const [list, setList] = useState(Object.values(dummyData));
-    const [completedList, setCompletedList] = useState(
-        list.filter((el) => el.complete === true)
-    );
-    const [todoList, setTodoList] = useState(
-        list.filter((el) => el.complete === false)
-    );
+    console.log(dummyData);
+    const [list, setList] = useState(dummyData);
+
     const renderTodoList = () => {
-        const renderedList = todoList.map((el) => (
-            <li key={el.id}>
-                <Todo
-                    id={el.id}
-                    task={el.task}
-                    status={el.complete}
-                    list={list}
-                    setList={setList}
-                />
-            </li>
-        ));
+        const renderedList = list
+            .filter((el) => el.complete === false)
+            .map((el) => (
+                <li key={el.id}>
+                    <Todo
+                        id={el.id}
+                        task={el.task}
+                        status={el.complete}
+                        list={list}
+                        setList={setList}
+                    />
+                </li>
+            ));
         return <ul>{renderedList}</ul>;
-        console.log(todoList);
     };
 
-    useEffect(() => {
-        setCompletedList(list.filter((el) => el.complete === true));
-    }, [list]);
-
-    useEffect(() => {
-        setTodoList(list.filter((el) => el.complete === false));
-    }, [list]);
-
     const renderCompletedList = () => {
-        const renderedList = completedList.map((el) => (
-            <li key={el.id}>
-                <Todo
-                    id={el.id}
-                    task={el.task}
-                    status={el.complete}
-                    list={list}
-                    setList={setList}
-                />
-            </li>
-        ));
+        const renderedList = list
+            .filter((el) => el.complete === true)
+            .map((el) => (
+                <li key={el.id}>
+                    <Todo
+                        id={el.id}
+                        task={el.task}
+                        status={el.complete}
+                        list={list}
+                        setList={setList}
+                    />
+                </li>
+            ));
         return <ul>{renderedList}</ul>;
     };
 

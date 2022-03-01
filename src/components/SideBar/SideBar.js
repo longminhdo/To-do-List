@@ -10,9 +10,11 @@ export default function SideBar() {
                 <span>Do Long Minh</span>
             </div>
             <div className="functions">
-                <div className="function__list active">
-                    <Icon icon="ant-design:unordered-list-outlined" />
-                    <span>Todo List</span>
+                <div className="function__list">
+                    <div className="item active">
+                        <Icon icon="ant-design:unordered-list-outlined" />
+                        <span>Todo List</span>
+                    </div>
                 </div>
             </div>
         </div>
