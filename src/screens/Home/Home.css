@@ -1,0 +1,41 @@
+.home-container {
+    width: 100%;
+    min-height: calc(100vh - 50px);
+    padding-bottom: 60px;
+}
+
+.home-container__head {
+    font-weight: 900;
+    display: block;
+    font-size: 1.2rem;
+}
+
+.todo-field {
+    margin-top: 15px;
+}
+
+ul {
+    list-style-type: none;
+}
+.home-container ul {
+    list-style-type: none;
+}
+
+.completed-field {
+    margin-top: 25px;
+}
+
+.completed-field .completed-field__head {
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.completed-field .completed-field__head span {
+    margin-left: 15px;
+    font-size: 1.2rem;
+}
+
+.completed-field .completed-field__head svg {
+    font-size: 1.4rem;
+    transform: translateY(2px);
+}

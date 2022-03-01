@@ -1,0 +1,25 @@
+.nav-bar-wrapper {
+    height: 60px;
+    width: 100%;
+    background-color: var(--main-red-color);
+    display: flex;
+    align-items: center;
+    color: var(--secondary-white-color);
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.nav-bar__logo svg {
+    font-size: 2rem;
+}
+
+.nav-bar__logo span {
+    font-size: 1.3rem;
+    margin-left: 12px;
+    transform: translateY(7px);
+    position: absolute;
+}
+
+.nav-bar__logo {
+    position: relative;
+}

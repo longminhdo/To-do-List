@@ -1,0 +1,30 @@
+.side-bar-wrapper {
+    position: sticky;
+    width: 300px;
+    height: calc(100vh - 50px);
+    background-color: var(--main-white-color);
+    top: 60px;
+    padding: 50px 27px;
+}
+
+.side-bar-wrapper .user-name span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: absolute;
+    transform: translate(5px, 3px);
+}
+
+.side-bar-wrapper .user-name svg {
+    font-size: 1.7rem;
+}
+
+.side-bar-wrapper .user-name {
+    margin-left: 40px;
+}
+
+.side-bar-wrapper .function {
+}
+
+.active {
+    background-color: var(--main-red-color);
+}
