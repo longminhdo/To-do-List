@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./TodoInput.css";
 import { v4 as uuidv4 } from "uuid";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../../redux/actions";
 
-export default function TodoInput({ list, setList }) {
+export default function TodoInput() {
+    const dispatch = useDispatch();
     const [input, setInput] = useState("");
     const [validation, setValidation] = useState({ isValid: true, text: "" });
+
     const handleInputChange = (event) => {
         setInput(event.target.value);
     };
@@ -23,20 +27,18 @@ export default function TodoInput({ list, setList }) {
         event.preventDefault();
 
         if (validation.isValid) {
-            const newTodo = {
-                id: uuidv4(),
-                task: input,
-                complete: false,
-            };
-            const newTodoList = [...list];
-            newTodoList.unshift(newTodo);
+            dispatch(
+                addTodo({
+                    id: uuidv4(),
+                    task: input,
+                    completed: false,
+                })
+            );
             setInput("");
-            setList(newTodoList);
         }
     };
 
     const validateInput = (input) => {
-        console.log(input);
         if (!input) {
             return { isValid: false, text: "" };
         }
@@ -57,15 +59,8 @@ export default function TodoInput({ list, setList }) {
 
     return (
         <form className="todo-input" onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder="Be productive..."
-                value={input}
-                onChange={handleInputChange}
-            ></input>
-            <p className={validation.isValid ? "display-none" : ""}>
-                {validation.text}
-            </p>
+            <input type="text" placeholder="Be productive..." value={input} onChange={handleInputChange}></input>
+            <p className={validation.isValid ? "display-none" : ""}>{validation.text}</p>
         </form>
     );
 }

@@ -1,45 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Todo from "../../components/Todo/Todo";
 import TodoInput from "../../components/TodoInput/TodoInput";
 import "./Home.css";
-import * as data from "./../../dummyData.json";
 import { Icon } from "@iconify/react";
-
-const dummyData = Object.values(data);
+import { useSelector } from "react-redux";
+import { todoListSelector } from "../../redux/selectors";
 
 export default function Home() {
-    console.log(dummyData);
-    const [list, setList] = useState(dummyData);
+    const todoList = useSelector(todoListSelector);
 
     const renderTodoList = () => {
-        const renderedList = list
-            .filter((el) => el.complete === false)
+        const renderedList = todoList
+            .filter((el) => el.completed === false)
             .map((el) => (
                 <li key={el.id}>
-                    <Todo
-                        id={el.id}
-                        task={el.task}
-                        status={el.complete}
-                        list={list}
-                        setList={setList}
-                    />
+                    <Todo id={el.id} task={el.task} status={el.completed} />
                 </li>
             ));
         return <ul>{renderedList}</ul>;
     };
 
     const renderCompletedList = () => {
-        const renderedList = list
-            .filter((el) => el.complete === true)
+        const renderedList = todoList
+            .filter((el) => el.completed === true)
             .map((el) => (
                 <li key={el.id}>
-                    <Todo
-                        id={el.id}
-                        task={el.task}
-                        status={el.complete}
-                        list={list}
-                        setList={setList}
-                    />
+                    <Todo id={el.id} task={el.task} status={el.completed} />
                 </li>
             ));
         return <ul>{renderedList}</ul>;
@@ -48,7 +34,7 @@ export default function Home() {
     return (
         <div className="home-container">
             <div className="home-container__head">Todo</div>
-            <TodoInput list={list} setList={setList} />
+            <TodoInput />
             <div className="todo-field">{renderTodoList()}</div>
             <div className="completed-field">
                 <div className="completed-field__head">
